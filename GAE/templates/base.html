@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='favicon.jpg') }}" />
+    <!-- Plotly -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <script src="https://kit.fontawesome.com/cf58ba28df.js" crossorigin="anonymous"></script>
+    {% if title %}
+      <title>Pi Calculator | {{ title }}</title>
+    {% else %}
+      <title>Pi Calculator</title>
+    {% endif %}
+  </head>
+
+  <body>
+    <main role="main" class="container">
+      <!-- top-menu -->
+      <ul class="top-menu">
+        <li><a href="/"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="/history"><i class="fas fa-history"></i>History</a></li>
+        <li><a href="/delete_history"><i class="fas fa-trash-alt"></i>Delete History</a></li>
+        <li><a href="/terminate"><i class="fas fa-power-off"></i>Terminate Resources</a></li>
+      </ul>
+
+      <!-- alert flashing -->
+      {% with alerts = get_flashed_messages(with_categories=true) %}
+        {% if alerts%}
+          {% for category, alert in alerts %}
+            <p class="alert  alert-{{category}}">{{alert}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <!-- content -->
+      {% block content %}
+      {% endblock content %}
+    </main>
+
+    <footer id="footer">2021-22 Cloud Computing Project at University of Surrey</footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

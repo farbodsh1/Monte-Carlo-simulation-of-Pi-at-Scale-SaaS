@@ -1,0 +1,134 @@
+/* ********* GENERAL ********* */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&family=Open+Sans:wght@300;400&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+* {
+  margin:0;
+}
+
+html, body {
+  background: rgb(0,0,0);
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+}
+
+.container {
+  max-width: 1500px;
+  min-height: 100%;
+  margin:0px auto -50px auto; 
+  padding-top: 100px;
+}
+
+.container:after {
+  content: "";
+  display: block;
+}
+
+/* ********* HEADER/MENU ********* */
+.top-menu{
+  margin: 0 auto 50px auto;
+  text-align: center;
+  padding: 0;
+}
+
+.top-menu li{
+  font-family: sans-serif;
+  display: inline;
+  margin: 0 50px;
+}
+
+.top-menu i{
+  margin: 0 10px;
+}
+
+/* ********* FORMS ********* */
+.row-fields-home{
+  margin: 0 auto;
+  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.row-fields-calc{
+  margin: 0 auto;
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+.mainBtn{
+  display: block;
+  margin: 50px auto;
+  width: 500px;
+  background-color: #007bff;
+  color: white;
+  border: 2px solid white;
+  font-weight: 400;
+  letter-spacing: 2px;
+  border-radius: 500px;
+}
+
+.small-btn{
+  background-color: #007bff;
+  color: white;
+  border: 2px solid white;
+  font-weight: 400;
+  border-radius: 50px;
+  margin:15px 20px;
+  height: 50px;
+  width: 150px;
+}
+
+.mainBtn:hover, .mainBtn:active, .small-btn:hover, .small-btn:active{
+  background-color: white;
+  color: #007bff;
+  border: 2px solid #007bff;
+  transition: all ease 200ms;
+}
+
+.form-control {
+  border-radius: 500px;
+  border: 3px solid transparent;
+}
+
+.form-control:hover, .form-control:active{
+  border: 3px solid #007bff;
+  transition: all ease 200ms;
+}
+
+/* ********* VISUALS ********* */
+.chart{
+  margin-top: 3rem;
+}
+
+.tableStyle{
+  margin-top: 20px;
+  padding: 25px;
+  border: 3px solid #3c3c3c;
+  display: grid;
+  grid-template-columns: 3.5fr 1fr;
+  gap: 20px
+}
+
+/* ********* SPECIFIC ********* */
+.text-center{
+  text-align: center;
+}
+
+a:hover, a:active, a:focus{
+  color:white;
+  text-decoration: none;
+  transition: all ease 200ms;
+}
+
+/* ********* FOOTER ********* */
+#footer, .container:after {
+  height: 50px;
+  text-align: center;
+}

@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+{%block content%}
+{% if error_ %}
+<div class="alert alert-primary" role="alert">
+    {{error_}} 
+</div>
+{% endif %}
+
+<h3 class="text-center">History</h3>
+{% if history %}
+    <!-- history Table -->
+    <div class="chart" id="history" >
+        <script>
+            var graphs = {{history | safe}};
+            Plotly.plot('history',graphs,{});
+        </script>
+    </div>
+{% else %}
+    <h5 class="text-center">No history found.</h5>
+{% endif %}
+
+{%endblock content%}

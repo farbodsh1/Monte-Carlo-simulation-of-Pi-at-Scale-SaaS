@@ -1,0 +1,50 @@
+{% extends "base.html"%}
+{%block content%}
+{% if error_ %}
+<div class="alert alert-primary" role="alert">
+    {{error_}} 
+</div>
+{% endif %}
+
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset>
+        <div class="row-fields-home">
+            <!-- input service_input -->
+            <div class="form-group">
+                {{ form.service_input.label(class="form-control-label") }}
+                {% if form.service_input.errors %}
+                    {{ form.service_input(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.service_input.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.service_input(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <!-- input R -->
+            <div class="form-group">
+                {{ form.r_input.label(class="form-control-label") }}
+                {% if form.r_input.errors %}
+                    {{ form.r_input(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.r_input.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.r_input(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </div>
+        <!-- continue button -->
+        <div class="form-group">
+            {{ form.continue_btn(class="btn btn-outline-info mainBtn") }}
+        </div>
+    </fieldset>
+</form>
+
+{%endblock content%}

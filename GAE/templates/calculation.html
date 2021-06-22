@@ -1,0 +1,100 @@
+{% extends "base.html"%}
+{%block content%}
+{% if error_ %}
+<div class="alert alert-primary" role="alert">
+    {{error_}} 
+</div>
+{% endif %}
+
+
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset>
+        <div class="row-fields-calc">
+            <!-- input D -->
+            <div class="form-group">
+                {{ form.d_input.label(class="form-control-label") }}
+                {% if form.d_input.errors %}
+                    {{ form.d_input(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.d_input.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.d_input(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <!-- input S -->
+            <div class="form-group">
+                {{ form.s_input.label(class="form-control-label") }}
+                {% if form.s_input.errors %}
+                    {{ form.s_input(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.s_input.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.s_input(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <!-- input Q -->
+            <div class="form-group">
+                {{ form.q_input.label(class="form-control-label") }}
+                {% if form.q_input.errors %}
+                    {{ form.q_input(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.q_input.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.q_input(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info mainBtn") }}
+        </div>
+    </fieldset>
+</form>
+
+{% if messages %}
+<h1>{{messages}}</h1>
+{% endif %}
+
+{% if plot %}
+    <!-- Plot -->
+    <div class="chart" id="plot" >
+        <script>
+            var graphs = {{plot | safe}};
+            Plotly.plot('plot',graphs,{});
+        </script>
+    </div>
+{% endif %}
+
+{% if table and final_table %}
+    <div class="tableStyle">
+        <!-- Result Table -->
+        <div class="chart" id="table" >
+            <script>
+                var graphs = {{table | safe}};
+                Plotly.plot('table',graphs,{});
+            </script>
+        </div>
+
+        <!-- Final Table -->
+        <div class="chart" id="final_table" >
+            <script>
+                var graphs = {{final_table | safe}};
+                Plotly.plot('final_table',graphs,{});
+            </script>
+        </div>
+    </div>
+{% endif %}
+
+{%endblock content%}
